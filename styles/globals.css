@@ -1,26 +1,185 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+:root {
+  --darkBlueDME: hsl(209, 23%, 22%);
+  --veryDarkBlueDMB: hsl(207, 26%, 17%);
+  --veryDarkBlueLMT: hsl(200, 15%, 8%);
+  --darkGrayLMI: hsl(0, 0%, 52%);
+  --veryLightGrayLMB: hsl(0, 0%, 98%);
+  --outlineColor: #5393ff;
+  --errorColor: #ef4877;
 }
 
 * {
+  border: 0;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+:where(body, html) {
+  background: var(--veryLightGrayLMB);
+  float: left;
+  height: 100%;
+  width: 100%;
 }
+
+main {
+  background: var(--veryLightGrayLMB);
+  display: flex;
+  flex-direction: column;
+  float: left;
+  padding: 40px 30px;
+  width: 100%;
+}
+
+/* * 0. Header 
+ * */
+header {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  float: left;
+  height: 110px;
+  justify-content: space-between;
+  padding: 0 15px;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+header h1 {
+  color: var(--veryDarkBlueLMT);
+  font-size: 18px;
+  font-weight: 800;
+}
+header .header__switchButtonDarkLightMode {
+  align-items: center;
+  display: flex;
+  color: var(--veryDarkBlueLMT);
+  font-size: 14px;
+  text-transform: none;
+}
+
+/* * 1. Search & Filter bar
+ * */
+.main__searchFilterBar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main__searchFilterBar .searchFilterBar__searchInputContainer {
+  align-items: center;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.06);
+  -moz-column-gap: 11px;
+       column-gap: 11px;
+  display: flex;
+  height: 60px;
+  padding: 0 0 0 25px;
+  width: 100%;
+}
+.main__searchFilterBar .searchFilterBar__searchInputContainer svg {
+  fill: var(--darkGrayLMI);
+}
+.main__searchFilterBar .searchFilterBar__searchInputContainer input {
+  border-radius: 0 6px 6px 0;
+  color: var(--veryDarkBlueLMT);
+  font-size: 16px;
+  height: 100%;
+  padding-left: 14px;
+  width: 100%;
+}
+.main__searchFilterBar .searchFilterBar__searchInputContainer input::-moz-placeholder {
+  color: var(--darkGrayLMI);
+}
+.main__searchFilterBar .searchFilterBar__searchInputContainer input:-ms-input-placeholder {
+  color: var(--darkGrayLMI);
+}
+.main__searchFilterBar .searchFilterBar__searchInputContainer input::placeholder {
+  color: var(--darkGrayLMI);
+}
+.main__searchFilterBar .searchFilterBar__searchInputContainer input:focus {
+  outline-color: var(--outlineColor);
+}
+.main__searchFilterBar .searchFilterBar__errorInputSearch {
+  color: var(--errorColor);
+  font-size: 14px;
+  margin-top: 5px;
+}
+.main__searchFilterBar #searchFilterBar__filterRegionSelect {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.06);
+  color: var(--veryDarkBlueLMT);
+  height: 60px;
+  font-size: 16px;
+  padding: 0 20px;
+  margin-top: 40px;
+}
+.main__searchFilterBar #searchFilterBar__filterRegionSelect:focus {
+  outline-color: var(--outlineColor);
+}
+
+/* * 2. Country Filtered List
+ * */
+.main__listFilteredCountries {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 30px 0;
+  row-gap: 40px;
+  width: 100%;
+}
+.main__listFilteredCountries .listFilteredCountries__countryContainer {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+}
+.main__listFilteredCountries .listFilteredCountries__countryContainer .listFilteredCountries__countryFlag {
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  width: 100%;
+}
+.main__listFilteredCountries .listFilteredCountries__countryContainer .listFilteredCountries__countryFlag img {
+  border-radius: 6px 6px 0 0;
+  position: relative !important;
+}
+.main__listFilteredCountries .listFilteredCountries__countryContainer .listFilteredCountries__countrySummaryInfos {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 25px 35px;
+  row-gap: 22px;
+}
+.main__listFilteredCountries .listFilteredCountries__countryContainer .listFilteredCountries__countrySummaryInfos h3 {
+  color: var(--veryDarkBlueLMT);
+  font-size: 22px;
+  letter-spacing: 0.4px;
+}
+.main__listFilteredCountries .listFilteredCountries__countryContainer .listFilteredCountries__countrySummaryInfos .countrySummaryInfos {
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+}
+.main__listFilteredCountries .listFilteredCountries__countryContainer .listFilteredCountries__countrySummaryInfos .countrySummaryInfos p {
+  color: var(--veryDarkBlueLMT);
+  font-size: 20px;
+}
+.main__listFilteredCountries .listFilteredCountries__countryContainer .listFilteredCountries__countrySummaryInfos .countrySummaryInfos p strong {
+  font-weight: 600;
+  margin-right: 5px;
+}
+.main__listFilteredCountries .listFilteredCountries__countryContainer .listFilteredCountries__countrySummaryInfos .countrySummaryInfos p span {
+  font-weight: 300;
+}
+
+/* * Dark mode
+ * */
+.dark-mode header {
+  background: var(--veryDarkBlueDMB);
+}
+.dark-mode header h1,
+.dark-mode header .header__switchButtonDarkLightMode {
+  color: #fff;
+}/*# sourceMappingURL=globals.css.map */

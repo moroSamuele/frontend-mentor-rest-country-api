@@ -1,0 +1,9 @@
+:root {
+  --darkBlueDME: hsl(209, 23%, 22%);
+  --veryDarkBlueDMB: hsl(207, 26%, 17%);
+  --veryDarkBlueLMT: hsl(200, 15%, 8%);
+  --darkGrayLMI: hsl(0, 0%, 52%);
+  --veryLightGrayLMB: hsl(0, 0%, 98%);
+  --outlineColor: #5393ff;
+  --errorColor: #ef4877;
+}/*# sourceMappingURL=root.css.map */
